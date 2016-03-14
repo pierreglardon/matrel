@@ -33,28 +33,43 @@
 	<?php do_action( 'foundationpress_layout_start' ); ?>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="title-bar" data-responsive-toggle="site-navigation">
-			<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
-			<div class="title-bar-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+		<div class="row bar-1">
+			<div class="small-4 columns">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img src="<?php echo get_template_directory_uri () ?>/assets/images/matrel-logo.png" alt="<?php bloginfo( 'name' ); ?>" class="logo" />
+				</a>
 			</div>
-		</div>
-
-		<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
-			<div class="top-bar-left">
-				<ul class="menu">
-					<li class="home"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
+			<div class="small-8 columns">
+				<ul class="settings text-right no-bullet">
+					<li><a href="#!"><i class="fa fa-cog"></i> Paramètres</a></li>
+					<li><a href="#!"><i class="fa fa-eur"></i> Devise</a></li>
+					<li><a href="#!"><i class="fa fa-language"></i> Langue</a></li>
 				</ul>
 			</div>
-			<div class="top-bar-right">
-				<?php foundationpress_top_bar_r(); ?>
+		</div>
+		<div class="row bar-2">
+			<div class="small-6 medium-10 columns">
+				<div class="title-bar" data-responsive-toggle="site-navigation">
+					<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
+				</div>
+				<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
 
-				<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
-					<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
-				<?php endif; ?>
+						<?php foundationpress_top_bar_r(); ?>
+
+						<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
+							<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+						<?php endif; ?>
+				</nav>
 			</div>
-		</nav>
+			<div class="small-6 medium-2 columns search">
+				<?php get_search_form(); ?>
+			</div>
+
+		</div>
+
+
 	</header>
 
 	<section class="container">
+		test
 		<?php do_action( 'foundationpress_after_header' );
