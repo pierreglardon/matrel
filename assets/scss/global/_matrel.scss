@@ -156,7 +156,7 @@ body {
 								ul.submenu {
 									background:#323232;
 									max-height: calc( 100vh - ( 75px * 2 ));
-									overflow-y: scroll;
+									overflow-y: auto;
 									overflow-x: hidden;
 									.is-submenu-item {
 										margin-bottom:4px;
@@ -190,8 +190,15 @@ body {
 									color:#fff;
 								}
 							}
-							ul.submenu {
-								background: transparent;
+							&.menu-item-has-children {
+								> a {
+									&::after {
+										border-color: #fafafa transparent transparent;
+									}
+								}
+								ul.submenu {
+									background: transparent;
+								}
 							}
 						}
 
@@ -204,6 +211,9 @@ body {
 				top:0;
 				right:0;
 	    		padding-right: 0.625rem;
+				@media screen and (max-width: 700px) and (min-width: 640px) {
+				  width:120px;
+				}
 				#searchform {
 					height:75px;
 					line-height:75px;
