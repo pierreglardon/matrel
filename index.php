@@ -59,7 +59,7 @@ get_header(); ?>
 				</div>
 				<hr />
 				<section>
-					<h3><?php the_field('prix'); ?></h3>
+					<h3><?php the_field('prix'); ?> €</h3>
 					<div class="tools">
 						<a href="#!" class="button">Partager</a> <a href="#!" class="button">Imprimer</a>
 					</div>
