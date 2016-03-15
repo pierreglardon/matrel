@@ -29,6 +29,7 @@ get_header(); ?>
 			</nav>
 		</div>
 	</div>
+
 	<div class="product">
 		<header class="row">
 			<div class="small-12 medium-5 columns">

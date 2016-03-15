@@ -48,23 +48,24 @@
 			</div>
 		</div>
 		<div class="row bar-2">
-			<div class="small-6 medium-10 columns">
-				<div class="title-bar" data-responsive-toggle="site-navigation">
-					<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
+			<div class="small-12 columns">
+				<div class="top-bar-left">
+					<div class="title-bar" data-responsive-toggle="site-navigation">
+						<button class="menu-icon" type="button" data-toggle="mobile-menu"></button>
+					</div>
+					<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
+
+							<?php foundationpress_top_bar_r(); ?>
+
+							<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
+								<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
+							<?php endif; ?>
+					</nav>
 				</div>
-				<nav id="site-navigation" class="main-navigation top-bar" role="navigation">
-
-						<?php foundationpress_top_bar_r(); ?>
-
-						<?php if ( ! get_theme_mod( 'wpt_mobile_menu_layout' ) || get_theme_mod( 'wpt_mobile_menu_layout' ) == 'topbar' ) : ?>
-							<?php get_template_part( 'template-parts/mobile-top-bar' ); ?>
-						<?php endif; ?>
-				</nav>
+				<div class="top-bar-right search">
+					<?php get_search_form(); ?>
+				</div>
 			</div>
-			<div class="small-6 medium-2 columns search">
-				<?php get_search_form(); ?>
-			</div>
-
 		</div>
 
 

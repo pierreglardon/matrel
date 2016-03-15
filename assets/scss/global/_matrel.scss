@@ -16,6 +16,10 @@ body {
 		top:0;
 		.top-bar {
 			background: transparent;
+			position:absolute;
+			left:0;
+			background:#323232;
+			width:100%;
 		}
 		.bar-1 {
 			height:75px;
@@ -76,36 +80,79 @@ body {
 		.bar-2 {
 			height:75px;
 			line-height:75px;
-			#site-navigation {
-				#menu-menu-principal {
+			position:relative;
+			@include breakpoint(small down) {
+				height:35px;
+				line-height:35px;
+			}
+			.top-bar-left {
+				display:block;
+				width:auto;
+				@include breakpoint(small down) {
+					display:block;
+				}
+				.title-bar {
 					background:transparent;
-					li {
-						border:0;
-						padding-right:20px;
-						&:last-of-type{
-							padding-right:0;
-						}
-						&.active {
+					height:35px;
+					padding:0;
+					line-height:35px;
+				}
+				#site-navigation {
+					#menu-menu-principal {
+						background:transparent;
+						li {
+							border:0;
+							padding-right:20px;
+							&:last-of-type{
+								padding-right:0;
+							}
+							&.active {
+								a {
+									background:transparent;
+								}
+							}
 							a {
 								background:transparent;
+								padding:0;
+								height:75px;
+								line-height:75px;
+								font-size:14px;
+								text-transform: uppercase;
+								font-weight:normal;
 							}
 						}
-						a {
-							background:transparent;
-							padding:0;
-							height:75px;
-							line-height:75px;
-							font-size:14px;
-							text-transform: uppercase;
-							font-weight:normal;
+					}
+					#menu-menu-principal-1 {
+						background:transparent;
+						li {
+							border-right:0;
+							&.active {
+								a {
+									background:transparent;
+								}
+							}
+							a {
+								padding:10px;
+								text-transform: uppercase;
+								height:inherit;
+							}
 						}
+
 					}
 				}
 			}
 			.search {
+				width:auto;
+				position:absolute;
+				top:0;
+				right:0;
 				#searchform {
 					height:75px;
 					line-height:75px;
+					@include breakpoint(small down) {
+						height:35px;
+						line-height:35px;
+					}
 					.input-group {
 						display:inline-block;
 						vertical-align: top;
@@ -124,6 +171,9 @@ body {
 						    font-size: 14px;
 							line-height: 75px;
 							margin-left: 7px;
+							@include breakpoint(small down) {
+								line-height:35px;
+							}
 						}
 						.input-group-field {
 							display:inline-block;
@@ -132,24 +182,41 @@ body {
 							border:1px solid #fff;
 							border-radius:13px;
 							height:26px;
+							line-height:26px;
 							font-size:14px;
 							color:#ffffff;
+							padding:0;
 							padding-left:24px;
 							&::-webkit-input-placeholder {
 							   color: #5d5d5d;
+							   font-size:10px;
    								text-transform: uppercase;
+								line-height:21px;
 							}
 							&:-moz-placeholder { /* Firefox 18- */
 							   color: #5d5d5d;
+							   font-size:10px;
    								text-transform: uppercase;
+								line-height:21px;
 							}
 							&::-moz-placeholder {  /* Firefox 19+ */
 							   color: #5d5d5d;
+							   font-size:10px;
    								text-transform: uppercase;
+								line-height:21px;
 							}
 							&:-ms-input-placeholder {
 							   color: #5d5d5d;
+							   font-size:10px;
    								text-transform: uppercase;
+								line-height:21px;
+							}
+							@include breakpoint(small down) {
+								height:20px;
+								line-height:20px;
+							}
+							&:focus {
+								box-shadow:none;
 							}
 						}
 						.input-group-button {
@@ -164,13 +231,18 @@ body {
 	section.container {
 		margin-top:150px;
 		margin-bottom:35px;
+		@include breakpoint(small down) {
+			margin-top:71px;
+		}
 		.breadcrumbs {
 			margin:10px 0;
 			li:not(:last-child)::after {
-				content:">"
+				content:">";
+				margin:0 5px;
 			}
 			a {
 				color:#626262;
+				font-size:10px;
 			}
 		}
 		.product {
@@ -179,6 +251,9 @@ body {
 			padding-bottom:10px;
 			> header {
 				margin-bottom:35px;
+				@include breakpoint(small down) {
+					margin-bottom:10px;
+				}
 				div:first-of-type {
 					ul {
 						li {
@@ -194,6 +269,10 @@ body {
 						font-weight:bold;
 						color:#424242;
 						text-transform:uppercase;
+						@include breakpoint(small down) {
+							font-size:16px;
+							margin-bottom:5px;
+						}
 					}
 					div.note {
 						line-height:1;
@@ -208,6 +287,9 @@ body {
 					hr {
 						margin:20px 0;
 						border-color: #ebebeb;
+						@include breakpoint(small down) {
+							margin:10px 0;
+						}
 					}
 					section {
 						position:relative;
@@ -217,6 +299,9 @@ body {
 							margin-bottom:10px;
 							font-weight:bold;
 							color:#424242;
+							@include breakpoint(small down) {
+								font-size:20px;
+							}
 						}
 						.tools {
 							position:absolute;
@@ -236,6 +321,9 @@ body {
 							font-size:12px;
 							text-transform: uppercase;
 							margin-bottom:0;
+							@include breakpoint(small down) {
+								font-size:11px;
+							}
 						}
 					}
 					ul.download {
@@ -249,11 +337,17 @@ body {
 								color:#f7931e;
 								font-size:14px;
 								text-transform: uppercase;
+								@include breakpoint(small down) {
+									font-size:11px;
+								}
 								i.fa {
 									font-size:24px;
 									margin-right:6px;
 									display:inline-block;
 									vertical-align: middle;
+									@include breakpoint(small down) {
+										font-size:20px;
+									}
 								}
 							}
 						}
@@ -268,11 +362,17 @@ body {
 					font-weight: bold;
 					text-align:center;
 					margin:0 0 10px;
+					@include breakpoint(small down) {
+						font-size:13px;
+					}
 				}
 				p {
 					margin:0;
 					font-size:13px;
 					line-height:1.2;
+					@include breakpoint(small down) {
+						font-size:11px;
+					}
 				}
 				table {
 					margin-top:20px;
@@ -288,15 +388,22 @@ body {
 							padding-top:0;
 							padding-bottom:0;
 							line-height:30px;
+							@include breakpoint(small down) {
+								font-size:11px;
+							}
 						}
 					}
 					tbody {
 						border:1px solid #ebebeb;
 						border-top:0;
-						font-size:12px;
+						font-size:11px;
 						color:#424242;
+						@include breakpoint(small down) {
+							font-size:10px;
+						}
 						tr {
 							border-bottom:1px solid #ebebeb;
+							height:30px;
 							&:nth-child(even) {
 								background:#fafafa;
 							}
@@ -306,7 +413,7 @@ body {
 							td {
 								padding-top:0;
 								padding-bottom:0;
-								line-height:30px;
+								line-height:1.2;
 							}
 						}
 					}
@@ -320,8 +427,21 @@ body {
 				color:#424242;
 				font-weight:bold;
 				margin:35px 0 5px;
+				@include breakpoint(small down) {
+					margin:20px 0 5px;
+				}
 			}
 			.similar {
+				@include breakpoint(medium) {
+					margin:0 0 20px
+				}
+				@include breakpoint(small down) {
+					margin:0 0 10px;
+					display:none;
+					&:nth-of-type(2), &:nth-of-type(3){
+						display:block;
+					}
+				}
 				> section {
 					background:#fff;
 					padding:10px;
@@ -354,14 +474,25 @@ body {
 	div.newsletter {
 		background:url('../images/bgnewsletter.jpg') center center no-repeat;
 		padding:65px 0;
+		@include breakpoint(small down) {
+			padding:40px 0;
+		}
 		.row {
 			line-height: 56px;
+			@include breakpoint(small down) {
+				line-height:1;
+			}
 			p {
 				margin:0;
 				font-size:18px;
 				color:#fafafa;
 				font-weight:bold;
 				text-transform: uppercase;
+				@include breakpoint(small down) {
+					font-size:12px;
+					text-align:center;
+					margin-bottom:40px;
+				}
 			}
 			input[type=email] {
 				width:70%;
@@ -376,6 +507,7 @@ body {
 				margin:0;
 				color:#fff;
 				padding:0 10px;
+				margin-left:25px;
 				&:focus {
 					box-shadow:none;
 					background:rgba(255,255,255,0.3);
@@ -412,6 +544,7 @@ body {
 				border:0;
 				height:24px;
 				line-height: 24px;
+				padding:0;
 				color:#626262;
 				font-size: 12px;
 				vertical-align: middle;
@@ -423,10 +556,18 @@ body {
 		margin:0;
 		border:0;
 		background:#212121;
-		footer {
+		#footer {
 			padding:35px 0;
+			@include breakpoint(small down) {
+				padding: 10px 0;
+				text-align: center;
+			}
 			.logo {
 				margin-bottom: 20px;
+				@include breakpoint(small down) {
+					max-height:40px;
+					margin-bottom: 10px;
+				}
 			}
 			p {
 				font-size: 12px;
@@ -438,9 +579,16 @@ body {
 			#menu-footer {
 				display:block;
 				text-align:right;
+				@include breakpoint(small down) {
+					margin-top:10px
+				}
 				li {
 					display:block;
 					margin-bottom:5px;
+					@include breakpoint(small down) {
+						text-align: center;
+						margin-bottom:0;
+					}
 					a {
 						display:inline-block;
 						font-size:18px;
@@ -451,6 +599,10 @@ body {
 						line-height:1.5;
 						&:hover {
 							color:#f7931e;
+						}
+						@include breakpoint(small down) {
+							font-size:12px;
+							line-height: 16px;
 						}
 					}
 				}
