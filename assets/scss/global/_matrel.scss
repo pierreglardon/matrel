@@ -18,6 +18,7 @@ body {
 			background: transparent;
 			position:absolute;
 			left:0;
+			top:0;
 			background:#323232;
 			width:100%;
 		}
@@ -26,6 +27,7 @@ body {
 			line-height:75px;
 			box-sizing: border-box;
 			border-bottom: 1px solid #424242;
+			transition:height 0.2s ease, line-height 0.2s ease;
 			@include breakpoint(small down) {
 				height:36px;
 				line-height:36px;
@@ -41,6 +43,7 @@ body {
 				line-height:75px;
 				margin:0;
 				background:transparent;
+				transition:height 0.2s ease, line-height 0.2s ease;
 				@include breakpoint(small down) {
 					height:36px;
 					line-height:36px;
@@ -84,6 +87,7 @@ body {
 			height:75px;
 			line-height:75px;
 			position:relative;
+			transition:height 0.2s ease, line-height 0.2s ease;
 			@include breakpoint(small down) {
 				height:35px;
 				line-height:35px;
@@ -123,6 +127,7 @@ body {
 								font-size:14px;
 								text-transform: uppercase;
 								font-weight:normal;
+								transition:height 0.2s ease, line-height 0.2s ease;
 								&:hover {
 									color:#fff;
 								}
@@ -249,6 +254,42 @@ body {
 					}
 				}
 
+			}
+		}
+		&.scrolling {
+			.bar-1 {
+				height:50px;
+				line-height:50px;
+				.settings {
+					height:50px;
+					line-height:50px;
+				}
+			}
+			.bar-2 {
+				height:50px;
+				line-height:50px;
+				.top-bar-left {
+					#site-navigation {
+						#menu-menu-principal {
+							li {
+								a {
+									height:50px;
+									line-height:50px;
+								}
+							}
+						}
+					}
+				}
+				.search {
+					#searchform {
+						height:50px;
+						line-height:50px;
+						.input-group::before {
+							height:50px;
+							line-height:50px;
+						}
+					}
+				}
 			}
 		}
 	}
