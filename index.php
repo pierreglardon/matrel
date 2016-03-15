@@ -29,23 +29,27 @@ get_header(); ?>
 			</nav>
 		</div>
 	</div>
-
 	<div class="product">
+
+	<?php
+	if ( have_posts() ) {
+		while ( have_posts() ) {
+			the_post(); ?>
 		<header class="row">
 			<div class="small-12 medium-5 columns">
 				<div class="small-3 columns">
 					<ul class="no-bullet">
-						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/product/img1.gif" /></li>
-						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/product/img2.gif" /></li>
-						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/product/img3.gif" /></li>
+						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/<?php the_field('petite_image_1'); ?>" /></li>
+						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/<?php the_field('petite_image_2'); ?>" /></li>
+						<li><img src="<?php echo get_template_directory_uri () ?>/assets/images/<?php the_field('petite_image_3'); ?>" /></li>
 					</ul>
 				</div>
 				<div class="small-9 columns">
-					<img src="<?php echo get_template_directory_uri () ?>/assets/images/product/img.gif" />
+					<img src="<?php echo get_template_directory_uri () ?>/assets/images/<?php the_field('image_principale'); ?>" />
 				</div>
 			</div>
 			<div class="small-12 medium-7 columns">
-				<h2>Raineuse-plieuse touchline CF 375</h2>
+				<h2><?php the_title() ?></h2>
 				<div class="note">
 					<i class="fa fa-star-o gold"></i>
 					<i class="fa fa-star-o gold"></i>
@@ -55,7 +59,7 @@ get_header(); ?>
 				</div>
 				<hr />
 				<section>
-					<h3>999,<sup>99</sup> €</h3>
+					<h3><?php the_field('prix'); ?></h3>
 					<div class="tools">
 						<a href="#!" class="button">Partager</a> <a href="#!" class="button">Imprimer</a>
 					</div>
@@ -63,26 +67,14 @@ get_header(); ?>
 				</section>
 				<hr />
 				<ul class="no-bullet download">
-					<li><a href="#!"><i class="fa fa-download"></i> Télécharger la documentation</a></li>
-					<li><a href="#!"><i class="fa fa-download"></i> Télécharger la gamme Touchline</a></li>
+					<li><a href="<?php the_field('documentation'); ?>"><i class="fa fa-download"></i> Télécharger la documentation</a></li>
+					<li><a href="<?php the_field('doc_gamme'); ?>"><i class="fa fa-download"></i> Télécharger la gamme Touchline</a></li>
 				</ul>
 			</div>
 		</header>
 		<section class="row">
 			<div class="small-12 columns">
-				<h4>Rainage par lame et pliage, par systèmes brevetés Multigraf</h4>
-				<p><strong>Ecran tactile couleur.</strong></p>
-				<p>L’écran tactile intuitif offre un accès direct à tous les éléments de commande..</p>
-				<p><strong>Opération par une touche.</strong></p>
-				<p>Une seule touche multifonctionnelle, positionnée de manière ergonomique pour entrer en production.</p>
-				<p><strong>Margeur haute pile à aspiration.</strong></p>
-				<p>Système par bandes aspirantes et soufflerie frontale. Idéal pour les forts grammages</p>
-				<p><strong>Dispositif de perforation.</strong></p>
-				<p>Disponible au niveau de la sortie inférieure.</p>
-				<p><strong>Sortie supérieure.</strong></p>
-				<p>Tapis de sortie à réglage automatique pour les documents pliés. Grande capacité</p>
-				<p><strong>Sortie inférieure.</strong></p>
-				<p>Bac de réception pour les documents uniquement rainés qui ne passent pas par les rouleaux de pliage.</p>
+				<?php the_content() ?>
 				<table>
 					<thead>
    						<tr>
@@ -115,6 +107,10 @@ get_header(); ?>
 				</table>
 			</div>
 		</section>
+		<?php
+		} // end while
+	} // end if
+	?>
 	</div>
 	<div class="similar-products">
 		<div class="row">
