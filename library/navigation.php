@@ -12,6 +12,12 @@ register_nav_menus(array(
 	'mobile-nav' => 'Mobile',
 ));
 
+/**
+  * Footer navigation
+  */
+register_nav_menus(array(
+	'footer nav' => 'Navigation footer'
+));
 
 /**
  * Desktop navigation - right top bar

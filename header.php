@@ -71,5 +71,4 @@
 	</header>
 
 	<section class="container">
-		test
 		<?php do_action( 'foundationpress_after_header' );
