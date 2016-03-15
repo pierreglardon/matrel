@@ -106,6 +106,9 @@ body {
 				}
 				#site-navigation {
 	    			padding-left: 0.625rem;
+					@include breakpoint(small down) {
+						margin-top:35px;
+					}
 					#menu-menu-principal {
 						background:transparent;
 						li {
@@ -132,6 +135,41 @@ body {
 									color:#fff;
 								}
 							}
+							&.menu-item-has-children {
+								padding-right:30px;
+								> a {
+									position:relative;
+									&::after {
+										font: normal normal normal 14px/1 FontAwesome;
+										display:inline-block;
+										content:"\f0d7";
+										border:0;
+										position:absolute;
+										right:-5px;
+										top:0;
+										line-height:75px;
+										margin-top:0;
+										font-size:14px;
+										transition: line-height 0.2s ease;
+									}
+								}
+								ul.submenu {
+									background:#323232;
+									max-height: calc( 100vh - ( 75px * 2 ));
+									overflow-y: scroll;
+									overflow-x: hidden;
+									.is-submenu-item {
+										margin-bottom:4px;
+										a {
+											height:inherit;
+											line-height: 14px;
+											text-transform: none;
+											padding:5px 10px;
+											font-size:13px;
+										}
+									}
+								}
+							}
 						}
 					}
 					#menu-menu-principal-1 {
@@ -147,6 +185,13 @@ body {
 								padding:10px;
 								text-transform: uppercase;
 								height:inherit;
+								&:hover:not(.button) {
+									background:transparent;
+									color:#fff;
+								}
+							}
+							ul.submenu {
+								background: transparent;
 							}
 						}
 
@@ -260,21 +305,53 @@ body {
 			.bar-1 {
 				height:50px;
 				line-height:50px;
+				@include breakpoint(small down) {
+					height:36px;
+					line-height:36px;
+				}
 				.settings {
 					height:50px;
 					line-height:50px;
+					@include breakpoint(small down) {
+						height:36px;
+						line-height:36px;
+					}
 				}
 			}
 			.bar-2 {
 				height:50px;
 				line-height:50px;
+				@include breakpoint(small down) {
+					height:35px;
+					line-height:35px;
+				}
 				.top-bar-left {
 					#site-navigation {
+						@include breakpoint(small down) {
+							max-height:calc( 100vh - (75px * 2) );
+							overflow-x: scroll;
+						}
 						#menu-menu-principal {
 							li {
 								a {
 									height:50px;
 									line-height:50px;
+									@include breakpoint(small down) {
+										height:35px;
+										line-height:35px;
+									}
+								}
+								&.menu-item-has-children {
+									> a {
+										position:relative;
+										&::after {
+											line-height:50px;
+											@include breakpoint(small down) {
+												height:35px;
+												line-height:35px;
+											}
+										}
+									}
 								}
 							}
 						}
@@ -284,9 +361,17 @@ body {
 					#searchform {
 						height:50px;
 						line-height:50px;
+						@include breakpoint(small down) {
+							height:35px;
+							line-height:35px;
+						}
 						.input-group::before {
 							height:50px;
 							line-height:50px;
+							@include breakpoint(small down) {
+								height:35px;
+								line-height:35px;
+							}
 						}
 					}
 				}
